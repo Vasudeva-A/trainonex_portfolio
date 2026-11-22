@@ -17,4 +17,13 @@ def project_list(request):
 
 def project_detail(request, slug):
     project = get_object_or_404(Project, slug=slug, is_published=True)
-    return render(request, "portfolio/project_detail.html", {"project": project})
+    related_projects = Project.objects.filter(
+        is_published=True,
+    ).exclude(pk=project.pk).select_related("category")
+    if project.category:
+        related_projects = related_projects.filter(category=project.category)
+    related_projects = related_projects[:3]
+    return render(request, "portfolio/project_detail.html", {
+        "project": project,
+        "related_projects": related_projects,
+    })

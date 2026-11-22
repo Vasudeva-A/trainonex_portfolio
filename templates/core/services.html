@@ -1,1 +1,25 @@
-{% extends "base.html" %}{% block title %}Services — Trainonex{% endblock %}{% block content %}<section class="inner-hero"><div class="container"><div class="section-kicker">SERVICES / 02</div><h1>Make the next<br><span>move count.</span></h1><p>Digital strategy, design and development under one roof.</p></div></section><section class="section-pad"><div class="container service-grid"><article class="service-card"><span>01</span><div class="service-icon">✳</div><h3>Website design</h3><p>Clear, responsive interfaces built around your users.</p><a href="{% url 'contact:send' %}">Explore service ↗</a></article><article class="service-card"><span>02</span><div class="service-icon">⌘</div><h3>Web applications</h3><p>Practical web products and custom business tools.</p><a href="{% url 'contact:send' %}">Explore service ↗</a></article><article class="service-card"><span>03</span><div class="service-icon">◈</div><h3>Brand systems</h3><p>Consistent identity and digital communication.</p><a href="{% url 'contact:send' %}">Explore service ↗</a></article></div></section>{% endblock %}
+{% extends "base.html" %}
+{% block title %}Services — Trainonex{% endblock %}
+{% block description %}Django websites, practical web application features, and thoughtful interface improvements.{% endblock %}
+{% block content %}
+<section class="inner-hero">
+  <div class="container inner-hero-content">
+    <span class="section-kicker">SERVICES / 02</span>
+    <h1>Good work starts<br><span>with the right focus.</span></h1>
+    <p>Practical development support for teams who want a useful, well-made web experience.</p>
+  </div>
+</section>
+<section class="section-pad">
+  <div class="container">
+    <div class="section-heading reveal"><div><span class="section-kicker">WAYS I CAN HELP</span><h2>Thoughtful work,<br><span>from first step to finish.</span></h2></div><p>Clear scope, readable implementation and attention to the people using the result.</p></div>
+    <div class="service-grid service-grid-page">
+      <article class="service-card reveal"><span class="service-number">01</span><div class="service-icon">↗</div><h3>Django websites</h3><p>Content-driven websites built with Django templates, responsive layouts and a practical editing workflow.</p><ul><li>Page and template implementation</li><li>Dynamic content with the Django ORM</li><li>Responsive styling and accessibility details</li></ul><a href="{% url 'contact:send' %}">Talk about a website <span aria-hidden="true">↗</span></a></article>
+      <article class="service-card reveal"><span class="service-number">02</span><div class="service-icon">{ }</div><h3>Application features</h3><p>Small, focused features that fit into the application you already have.</p><ul><li>Forms and validation</li><li>Authentication-aware pages</li><li>CRUD and database-backed workflows</li></ul><a href="{% url 'contact:send' %}">Talk about a feature <span aria-hidden="true">↗</span></a></article>
+      <article class="service-card reveal"><span class="service-number">03</span><div class="service-icon">◎</div><h3>Interface refinement</h3><p>Make existing pages clearer and more comfortable to use across desktop and mobile.</p><ul><li>Visual hierarchy and content structure</li><li>Responsive behaviour</li><li>Usable forms and interaction states</li></ul><a href="{% url 'contact:send' %}">Improve an interface <span aria-hidden="true">↗</span></a></article>
+    </div>
+  </div>
+</section>
+<section class="service-note">
+  <div class="container service-note-inner"><span class="section-kicker">A GOOD FIRST STEP</span><p>Share what you’re trying to improve, what already exists and what success would look like. We can take it from there.</p><a class="btn btn-primary" href="{% url 'contact:send' %}">Start a conversation <span aria-hidden="true">↗</span></a></div>
+</section>
+{% endblock %}

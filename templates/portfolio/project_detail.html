@@ -1,53 +1,53 @@
-{% extends "base.html" %}{% block title %}{{ project.title }} — Trainonex{% endblock %}{% block content %}
-<section class="inner-hero">
+{% extends "base.html" %}
+{% block title %}{{ project.title }} — Trainonex case study{% endblock %}
+{% block description %}{{ project.short_description }}{% endblock %}
+{% block content %}
+<section class="case-hero">
   <div class="container">
-    <div class="section-kicker">
-      CASE STUDY / {% if project.category %}{{ project.category.name }}{% else%}PROJECT{% endif %}
-    </div>
-    <h1>{{ project.title }}<span class="blue-dot">.</span></h1>
-    <p>{{ project.short_description }}</p>
-  </div>
-</section>
-<section class="section-pad">
-  <div class="container case-study">
-    {% if project.cover_image %}
-    <img
-      class="case-image"
-      src="{{ project.cover_image.url }}"
-      alt="{{ project.title }}"
-    />
-    {% else %}
-    <div class="case-placeholder">{{ project.title|upper }}</div>
-    {% endif %}
-    <div class="case-copy">
-      <div>
-        <div class="section-kicker">THE PROJECT</div>
-        <h2>Making the idea<br /><span>work in real life.</span></h2>
-      </div>
-      <div>
-        <p>{{ project.description|linebreaks }}</p>
-        <div class="d-flex gap-3 flex-wrap">
-          {% if project.project_url %}
-          <a
-            class="btn btn-primary"
-            href="{{ project.project_url }}"
-            target="_blank"
-            rel="noopener"
-            >Visit project ↗</a>
-            {% endif %}{% if project.github_url %}<a
-            class="btn btn-outline-dark"
-            href="{{ project.github_url }}"
-            target="_blank"
-            rel="noopener">
-            View source ↗
-        </a>
-            {% endif %}
+    <a class="back-link case-back" href="{% url 'portfolio:list' %}">← Back to selected work</a>
+    <div class="case-editorial">
+      <div class="case-editorial-copy">
+        <span class="case-overline">CASE STUDY <i></i> {% if project.category %}{{ project.category.name }}{% else %}INDEPENDENT PROJECT{% endif %}</span>
+        <h1>{{ project.title }}<span>.</span></h1>
+        <p>{{ project.short_description }}</p>
+        <div class="case-actions">
+          {% if project.project_url %}<a class="btn btn-primary" href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer">Open live project <span aria-hidden="true">↗</span></a>{% endif %}
+          {% if project.github_url %}<a class="case-source-link" href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer">View source on GitHub <span aria-hidden="true">↗</span></a>{% endif %}
         </div>
       </div>
+      <div class="case-cover">
+        {% if project.cover_image %}
+          <img src="{{ project.cover_image.url }}" alt="{{ project.title }} project cover">
+        {% else %}
+          <div class="image-placeholder case-placeholder"><span>TRAINONEX / CASE STUDY</span><b>{{ project.title }}</b></div>
+        {% endif %}
+        <span class="case-cover-index">PROJECT / {{ project.category.name|default:"FEATURED" }}</span>
+      </div>
     </div>
-    <a href="{% url 'portfolio:list' %}" class="text-link">
-      ← Back to all work
-    </a>
   </div>
 </section>
+<section class="case-body section-pad">
+  <div class="container case-content">
+    <aside class="case-facts">
+      <span class="section-kicker">AT A GLANCE</span>
+      <div><span>PROJECT</span><strong>{{ project.title }}</strong></div>
+      <div><span>CATEGORY</span><strong>{{ project.category.name|default:"Independent project" }}</strong></div>
+      <div><span>STATUS</span><strong>Published work</strong></div>
+      <a class="case-back-work" href="{% url 'portfolio:list' %}">Explore all projects <span aria-hidden="true">↗</span></a>
+    </aside>
+    <article class="case-description">
+      <span class="section-kicker">THE PROJECT</span>
+      <h2>Overview<span>.</span></h2>
+      <div class="rich-copy">{{ project.description|linebreaks }}</div>
+    </article>
+  </div>
+</section>
+{% if related_projects %}
+<section class="section-pad related-section">
+  <div class="container">
+    <div class="section-heading"><div><span class="section-kicker">KEEP EXPLORING</span><h2>Related <span>work.</span></h2></div><a class="text-link" href="{% url 'portfolio:list' %}">All projects <span aria-hidden="true">↗</span></a></div>
+    <div class="project-grid related-project-grid">{% for project in related_projects %}{% include "portfolio/_project_card.html" with project=project %}{% endfor %}</div>
+  </div>
+</section>
+{% endif %}
 {% endblock %}

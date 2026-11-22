@@ -1,1 +1,27 @@
-{% extends "dashboard/base_dashboard.html" %}{% block page_heading %}Projects{% endblock %}{% block dashboard_content %}<div class="dash-panel"><div class="panel-heading"><div><h2>All projects</h2><p>Create, edit and control project visibility.</p></div><a class="btn btn-primary" href="{% url 'dashboard:project_add' %}">＋ Add project</a></div><div class="table-responsive"><table class="table align-middle"><thead><tr><th>Project</th><th>Category</th><th>Status</th><th>Actions</th></tr></thead><tbody>{% for project in projects %}<tr><td><strong>{{ project.title }}</strong></td><td>{{ project.category|default:"—" }}</td><td>{% if project.is_published %}<span class="status published">Published</span>{% else %}<span class="status draft">Draft</span>{% endif %}</td><td><a class="table-action" href="{% url 'dashboard:project_edit' project.id %}">Edit</a> <a class="table-action danger-link" href="{% url 'dashboard:project_delete' project.id %}">Delete</a></td></tr>{% empty %}<tr><td colspan="4" class="text-center py-5">No projects added.</td></tr>{% endfor %}</tbody></table></div></div>{% endblock %}
+{% extends "dashboard/base_dashboard.html" %}
+{% block page_heading %}Projects{% endblock %}
+{% block dashboard_content %}
+<section class="dash-panel">
+  <div class="panel-heading"><div><h2>All projects</h2><p>Edit project details, images and publication status.</p></div><a class="btn btn-primary" href="{% url 'dashboard:project_add' %}">＋ Add project</a></div>
+  <div class="table-responsive">
+    <table class="table align-middle">
+      <thead><tr><th>Project</th><th>Category</th><th>Status</th><th>Actions</th></tr></thead>
+      <tbody>
+        {% for project in projects %}
+        <tr>
+          <td>
+            <div class="admin-project-cell">
+              {% if project.cover_image %}<img src="{{ project.cover_image.url }}" alt="" loading="lazy">{% else %}<span class="admin-project-placeholder">TN</span>{% endif %}
+              <div><strong>{{ project.title }}</strong><small class="d-block text-muted">{{ project.short_description|truncatechars:55 }}</small></div>
+            </div>
+          </td>
+          <td>{{ project.category|default:"—" }}</td>
+          <td>{% if project.is_published %}<span class="status published">Published</span>{% else %}<span class="status draft">Draft</span>{% endif %}</td>
+          <td><a class="table-action" href="{% url 'dashboard:project_edit' project.id %}">Edit</a><a class="table-action danger-link" href="{% url 'dashboard:project_delete' project.id %}">Delete</a></td>
+        </tr>
+        {% empty %}<tr><td colspan="4" class="text-center py-5">No projects added yet.</td></tr>{% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

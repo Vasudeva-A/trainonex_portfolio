@@ -1,0 +1,20 @@
+<article class="project-card reveal">
+  <a class="project-visual" href="{% url 'portfolio:detail' project.slug %}" aria-label="View case study: {{ project.title }}">
+    {% if project.cover_image %}
+      <img src="{{ project.cover_image.url }}" alt="{{ project.title }} project preview" loading="lazy">
+    {% else %}
+      <div class="image-placeholder"><span>TRAINONEX / WORK</span><b>{{ project.title }}</b></div>
+    {% endif %}
+    <span class="project-category">{% if project.category %}{{ project.category.name }}{% else %}PROJECT{% endif %}</span>
+    <span class="project-visual-arrow" aria-hidden="true">↗</span>
+  </a>
+  <div class="project-info">
+    <div class="project-info-top">
+      <span class="project-meta">{% if project.category %}{{ project.category.name }}{% else %}SELECTED PROJECT{% endif %}</span>
+      {% if project.project_url %}<a class="project-live-link" href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer">Live preview <span aria-hidden="true">↗</span></a>{% endif %}
+    </div>
+    <h3><a href="{% url 'portfolio:detail' project.slug %}">{{ project.title }}</a></h3>
+    <p>{{ project.short_description }}</p>
+    <a class="project-case-link" href="{% url 'portfolio:detail' project.slug %}">View case study <span aria-hidden="true">↗</span></a>
+  </div>
+</article>

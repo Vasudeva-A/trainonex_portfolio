@@ -7,6 +7,20 @@ class StaffLoginView(LoginView):
     template_name = "accounts/login.html"
     redirect_authenticated_user = True
 
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.fields["username"].widget.attrs.update({
+            "class": "form-control",
+            "placeholder": "Your username",
+            "autocomplete": "username",
+        })
+        form.fields["password"].widget.attrs.update({
+            "class": "form-control",
+            "placeholder": "Your password",
+            "autocomplete": "current-password",
+        })
+        return form
+
     def form_valid(self, form):
         if not form.get_user().is_staff:
             form.add_error(None, "This account does not have dashboard access.")

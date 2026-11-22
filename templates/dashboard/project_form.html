@@ -1,1 +1,28 @@
-{% extends "dashboard/base_dashboard.html" %}{% block page_heading %}{{ page_title }}{% endblock %}{% block dashboard_content %}<div class="dash-panel form-panel"><form method="post" enctype="multipart/form-data">{% csrf_token %}{{ form.non_field_errors }}{% for field in form %}<div class="mb-3"><label class="form-label">{{ field.label }}</label>{{ field }}{% if field.help_text %}<small class="text-muted">{{ field.help_text }}</small>{% endif %}{% for error in field.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}</div>{% endfor %}<div class="d-flex gap-2"><button class="btn btn-primary">Save project</button><a href="{% url 'dashboard:projects' %}" class="btn btn-outline-dark">Cancel</a></div></form></div>{% endblock %}
+{% extends "dashboard/base_dashboard.html" %}
+{% block page_heading %}{{ page_title }}{% endblock %}
+{% block dashboard_content %}
+<section class="dash-panel form-panel">
+  <div class="panel-heading"><div><h2>Project details</h2><p>Keep the description useful and publish only when the project is ready.</p></div></div>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {% for field in form %}
+      <div class="mb-3">
+        <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {% if field.name == "cover_image" and project.cover_image %}
+          <div class="image-preview-wrap" id="imagePreviewWrap">
+            <img id="imagePreview" src="{{ project.cover_image.url }}" alt="Current cover image for {{ project.title }}">
+            <div class="image-preview-caption">Current cover image · Preview updates when you choose a new file.</div>
+          </div>
+        {% elif field.name == "cover_image" %}
+          <div class="image-preview-wrap" id="imagePreviewWrap" hidden><img id="imagePreview" alt="Selected cover image preview"></div>
+        {% endif %}
+        {{ field }}
+        {% if field.help_text %}<small class="text-muted">{{ field.help_text }}</small>{% endif %}
+        {% for error in field.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}
+      </div>
+    {% endfor %}
+    <div class="d-flex flex-wrap gap-2"><button class="btn btn-primary" type="submit">Save project</button><a href="{% url 'dashboard:projects' %}" class="btn btn-outline-dark">Cancel</a></div>
+  </form>
+</section>
+{% endblock %}

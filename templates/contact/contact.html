@@ -1,45 +1,32 @@
 {% extends "base.html" %}
 {% block title %}Contact — Trainonex{% endblock %}
+{% block description %}Get in touch about a Django website, application feature or interface improvement.{% endblock %}
 {% block content %}
 <section class="inner-hero">
-  <div class="container">
-    <div class="section-kicker">CONTACT / 04</div>
-    <h1>Have a good idea?<br><span>Let's make it happen.</span></h1>
-    <p>Tell us what you're building. We'll get back to you soon.</p>
+  <div class="container inner-hero-content">
+    <span class="section-kicker">CONTACT / 06</span>
+    <h1>Tell me what<br><span>you’re working on.</span></h1>
+    <p>A few details are enough to get the conversation started. I’ll reply as soon as I can.</p>
   </div>
 </section>
 <section class="contact-section section-pad">
   <div class="container contact-grid">
-    <div>
-      <div class="section-kicker">GET IN TOUCH</div>
-      <h2>Let's start<br><span>a conversation.</span></h2>
-      <p>Share a little about your project and our team will be in touch.</p>
-      <a class="contact-email" href="mailto:hello@trainonex.com">hello@trainonex.com ↗</a>
+    <div class="contact-copy reveal">
+      <span class="section-kicker">START A CONVERSATION</span>
+      <h2>Good projects<br>start with a <span>hello.</span></h2>
+      <p>Share the idea, the challenge or the part of your current project where you need a hand.</p>
+      <a class="contact-email" href="mailto:hello@trainonex.com">hello@trainonex.com <span aria-hidden="true">↗</span></a>
+      <div class="contact-note"><span class="pulse-dot"></span><span>Your message is saved securely so I can follow up.</span></div>
     </div>
-    <form class="contact-form" method="post" action="{% url 'contact:send' %}">
+    <form class="contact-form reveal" method="post" action="{% url 'contact:send' %}">
       {% csrf_token %}
+      <div class="form-heading"><span>YOUR NOTE</span><p>Fields marked with * are required.</p></div>
       <div class="row g-3">
-        <div class="col-md-6">
-          <label for="{{ form.name.id_for_label }}">Your name</label>
-          {{ form.name }}
-          {{ form.name.errors }}
-        </div>
-        <div class="col-md-6">
-          <label for="{{ form.email.id_for_label }}">Email address</label>
-          {{ form.email }}
-          {{ form.email.errors }}
-        </div>
-        <div class="col-12">
-          <label for="{{ form.subject.id_for_label }}">Subject</label>
-          {{ form.subject }}
-          {{ form.subject.errors }}
-        </div>
-        <div class="col-12">
-          <label for="{{ form.message.id_for_label }}">Tell us about your project</label>
-          {{ form.message }}
-          {{ form.message.errors }}
-        </div>
-        <div class="col-12"><button class="btn btn-primary btn-lg" type="submit">Send message ↗</button></div>
+        <div class="col-md-6"><label for="{{ form.name.id_for_label }}">Name *</label>{{ form.name }}{{ form.name.errors }}</div>
+        <div class="col-md-6"><label for="{{ form.email.id_for_label }}">Email *</label>{{ form.email }}{{ form.email.errors }}</div>
+        <div class="col-12"><label for="{{ form.subject.id_for_label }}">Subject</label>{{ form.subject }}{{ form.subject.errors }}</div>
+        <div class="col-12"><label for="{{ form.message.id_for_label }}">A little about your project *</label>{{ form.message }}{{ form.message.errors }}</div>
+        <div class="col-12"><button class="btn btn-primary btn-lg" type="submit">Send message <span aria-hidden="true">↗</span></button></div>
       </div>
     </form>
   </div>

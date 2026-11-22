@@ -1,24 +1,162 @@
 {% extends "base.html" %}
+{% load static %}
+{% block title %}Trainonex — Thoughtful digital experiences{% endblock %}
 {% block content %}
 <section class="hero-section">
- <div class="container hero-grid">
-  <div class="hero-copy reveal">
-   <div class="eyebrow"><span class="pulse-dot"></span> INDEPENDENT DIGITAL STUDIO</div>
-   <h1>We build digital<br><span>experiences</span> that<br>move ideas forward<span class="blue-dot">.</span></h1>
-   <p class="hero-text">Thoughtful design. Clean code. Meaningful impact.<br>We help brands and startups create products people love to use.</p>
-   <div class="d-flex gap-3 flex-wrap"><a class="btn btn-primary btn-lg" href="{% url 'portfolio:list' %}">Explore selected work <span>↗</span></a><a class="btn btn-outline-dark btn-lg" href="{% url 'contact:send' %}">Start a project</a></div>
-   <div class="availability"><span class="pulse-dot"></span> Available for new projects</div>
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <div class="eyebrow"><span class="pulse-dot"></span> DJANGO DEVELOPER · DIGITAL STUDIO</div>
+      <h1>Useful ideas,<br>made <span>real.</span></h1>
+      <p class="hero-text">I build clear, dependable web experiences with Python, Django and a thoughtful eye for the details that make a product feel right.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="{% url 'portfolio:list' %}">Explore my work <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-outline-dark btn-lg" href="{% url 'contact:send' %}">Let’s talk</a>
+      </div>
+      <div class="availability"><span class="pulse-dot"></span> Open to thoughtful collaborations</div>
+    </div>
+    <div class="hero-art reveal">
+      <img
+        class="hero-art-image"
+        src="{% static 'images/home-hero.png' %}"
+        alt="Laptop and connected digital design workspace"
+      >
+    </div>
   </div>
-  <div class="hero-art reveal">
-   <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-   <div class="art-glow"></div>
-   <div class="art-card"><div class="art-top"><span>TX / 01</span><span>CREATIVE TECHNOLOGY</span></div><div class="abstract-head"><div class="head-core"></div><div class="head-line"></div><div class="head-chip chip-one"></div><div class="head-chip chip-two"></div><div class="head-chip chip-three"></div></div><div class="art-bottom"><span>IDEAS INTO<br>EXPERIENCES</span><span class="art-number">01—04</span></div></div>
-   <div class="floating-tag">DESIGN <b>×</b> TECHNOLOGY</div>
+  <div class="container hero-foot">
+    <span>INDEPENDENT BY NATURE</span>
+    <span class="hero-foot-line"></span>
+    <span>CURIOUS ABOUT WHAT’S NEXT</span>
   </div>
- </div>
- <div class="container stats-row"><div><strong>48<span>+</span></strong><small>Projects completed</small></div><div><strong>32<span>+</span></strong><small>Happy clients</small></div><div><strong>6<span>+</span></strong><small>Years of experience</small></div><div class="stats-note">SMALL TEAM.<br>BIG THINKING.</div></div>
 </section>
-<section class="section-pad"><div class="container"><div class="section-heading"><div><div class="section-kicker">SELECTED WORK</div><h2>Ideas made <span>real.</span></h2></div><a class="text-link" href="{% url 'portfolio:list' %}">View all projects ↗</a></div>
- <div class="project-grid">{% for project in projects %}<a class="project-card" href="{% url 'portfolio:detail' project.slug %}"><div class="project-image">{% if project.cover_image %}<img src="{{ project.cover_image.url }}" alt="{{ project.title }}">{% else %}<div class="image-placeholder"><span>TN / {{ forloop.counter|stringformat:"02d" }}</span><b>{{ project.title|upper }}</b></div>{% endif %}<span class="project-category">{% if project.category %}{{ project.category.name }}{% else %}FEATURED{% endif %}</span></div><div class="project-info"><div><h3>{{ project.title }}</h3><p>{{ project.short_description }}</p></div><span class="arrow-circle">↗</span></div></a>{% empty %}<div class="empty-project"><span>YOUR NEXT CASE STUDY</span><h3>Work worth talking about.</h3><p>Published projects will appear here. Add your first project from the dashboard.</p><a href="{% url 'portfolio:list' %}" class="text-link">Explore work ↗</a></div>{% endfor %}</div>
-</div></section>
+
+<section class="section-pad intro-section" id="about">
+  <div class="container intro-grid">
+    <div class="section-aside reveal">
+      <span class="section-kicker">01 / A LITTLE ABOUT ME</span>
+      <span class="aside-mark">TN<span>.</span></span>
+    </div>
+    <div class="intro-copy reveal">
+      <h2>I like making the complicated feel <span>simple.</span></h2>
+      <p>I’m a developer who enjoys bringing a web product from its first sketch to a working, well-considered experience. I care about clear interfaces, useful functionality and code that is straightforward to maintain.</p>
+      <p>From database-backed Django features to the finishing touches in the browser, I enjoy understanding how the pieces fit together and making them work as one.</p>
+      <a class="text-link" href="{% url 'core:about' %}">More about my approach <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad skills-section">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div><span class="section-kicker">02 / WHAT I WORK WITH</span><h2>A practical toolkit,<br><span>used with purpose.</span></h2></div>
+      <p>Tools are only useful when they help solve the right problem.</p>
+    </div>
+    <div class="skills-grid">
+      <article class="skill-card reveal"><span class="skill-index">01</span><h3>Back end</h3><p>Building the reliable parts behind the interface.</p><div class="tag-list"><span>Python</span><span>Django</span><span>Django ORM</span><span>SQLite</span></div></article>
+      <article class="skill-card reveal"><span class="skill-index">02</span><h3>Front end</h3><p>Responsive pages with a clear hierarchy and considered details.</p><div class="tag-list"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Bootstrap</span></div></article>
+      <article class="skill-card reveal"><span class="skill-index">03</span><h3>Product workflow</h3><p>Turning a brief into a usable feature, then checking it end to end.</p><div class="tag-list"><span>Git</span><span>Forms</span><span>Authentication</span><span>CRUD</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad services-section" id="services">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div><span class="section-kicker">03 / HOW I CAN HELP</span><h2>Small details.<br><span>Solid foundations.</span></h2></div>
+      <a class="text-link" href="{% url 'core:services' %}">Explore services <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="service-grid">
+      <article class="service-card reveal"><span class="service-number">01</span><div class="service-icon">↗</div><h3>Django websites</h3><p>Responsive, content-driven sites with thoughtful templates and a straightforward editing experience.</p><a href="{% url 'contact:send' %}">Discuss a website <span aria-hidden="true">↗</span></a></article>
+      <article class="service-card reveal"><span class="service-number">02</span><div class="service-icon">{ }</div><h3>Web application features</h3><p>Useful workflows built around forms, authentication and the data your application already has.</p><a href="{% url 'contact:send' %}">Discuss a feature <span aria-hidden="true">↗</span></a></article>
+      <article class="service-card reveal"><span class="service-number">03</span><div class="service-icon">◎</div><h3>Interface refinement</h3><p>Clearer layouts, improved responsive behaviour and interactions that feel natural to use.</p><a href="{% url 'contact:send' %}">Improve an interface <span aria-hidden="true">↗</span></a></article>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad work-section home-work" id="work">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div><span class="section-kicker">04 / SELECTED WORK</span><h2>Built to work.<br><span>Made to matter.</span></h2></div>
+      <a class="text-link" href="{% url 'portfolio:list' %}">View all projects <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="project-grid">
+      {% for project in projects %}
+        {% include "portfolio/_project_card.html" with project=project %}
+      {% empty %}
+        <div class="empty-project"><span class="section-kicker">THE NEXT PROJECT STARTS HERE</span><h3>Good work begins with a good question.</h3><p>Published projects will appear here as they are ready to share.</p><a href="{% url 'contact:send' %}" class="text-link">Start a conversation <span aria-hidden="true">↗</span></a></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-pad process-section">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div><span class="section-kicker">05 / A CLEAR WAY FORWARD</span><h2>Good work is a<br><span>series of good decisions.</span></h2></div>
+      <p>A collaborative process keeps the goal clear and the work moving.</p>
+    </div>
+    <div class="process-grid">
+      <article class="process-step reveal"><span>01</span><h3>Understand</h3><p>Get clear on the people, the problem and what a useful outcome looks like.</p></article>
+      <article class="process-step reveal"><span>02</span><h3>Shape</h3><p>Agree on a focused plan, the right content and how the main interactions should work.</p></article>
+      <article class="process-step reveal"><span>03</span><h3>Build</h3><p>Develop the feature in considered steps, checking the experience as it takes shape.</p></article>
+      <article class="process-step reveal"><span>04</span><h3>Refine</h3><p>Test real flows, polish responsive details and prepare the work to be handed over.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad experience-section">
+  <div class="container experience-grid">
+    <div class="reveal"><span class="section-kicker">06 / EXPERIENCE IN PRACTICE</span><h2>Learn by building<br><span>the whole thing.</span></h2></div>
+    <div class="experience-card reveal">
+      <span class="experience-label">HANDS-ON PROJECT WORK</span>
+      <h3>From database to browser</h3>
+      <p>My project work brings together Django models, staff-only management tools, responsive templates and real user flows—so I can understand not just one screen, but how the product works end to end.</p>
+      <a class="text-link" href="{% url 'portfolio:list' %}">See the work in context <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="tools-strip">
+  <div class="container tools-inner"><span class="section-kicker">TOOLS I USE</span><div class="tools-list"><span>Python</span><i></i><span>Django</span><i></i><span>HTML & CSS</span><i></i><span>JavaScript</span><i></i><span>SQLite</span><i></i><span>Git</span></div></div>
+</section>
+
+<section class="section-pad testimonial-section">
+  <div class="container testimonial-inner reveal">
+    <span class="section-kicker">07 / KIND WORDS</span>
+    <div><h2>Good work speaks<br><span>for itself.</span></h2><p>No testimonials have been published yet. When genuine feedback is ready to share, it belongs here—with permission and in the author’s own words.</p></div>
+  </div>
+</section>
+
+<section class="section-pad faq-section">
+  <div class="container faq-grid">
+    <div class="reveal"><span class="section-kicker">08 / A FEW ANSWERS</span><h2>Before we<br><span>get started.</span></h2><p>Have another question? I’d be glad to hear what you’re working on.</p><a class="text-link" href="{% url 'contact:send' %}">Get in touch <span aria-hidden="true">↗</span></a></div>
+    <div class="faq-list reveal">
+      <details><summary>What kind of projects do you take on?<span>+</span></summary><p>Website builds, Django features and interface improvements are a good fit. Share your goals and we can work out the right next step.</p></details>
+      <details><summary>Can you work with an existing Django project?<span>+</span></summary><p>Yes. I can get familiar with the current structure and focus on a defined feature or improvement without replacing working parts.</p></details>
+      <details><summary>How do you keep a project on track?<span>+</span></summary><p>Start with a clear scope, agree on priorities and share progress as the work develops. That makes it easier to spot questions early.</p></details>
+      <details><summary>What should I include in an enquiry?<span>+</span></summary><p>A short description of the idea, what you need help with and any timing or technical constraints is a great start.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section section-pad" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-copy reveal">
+      <span class="section-kicker">09 / LET’S MAKE SOMETHING USEFUL</span>
+      <h2>Have a project<br>in <span>mind?</span></h2>
+      <p>Tell me a little about it. I’ll get back to you to talk through the details.</p>
+      <a class="contact-email" href="mailto:hello@trainonex.com">hello@trainonex.com <span aria-hidden="true">↗</span></a>
+    </div>
+    <form class="contact-form reveal" method="post" action="{% url 'contact:send' %}">
+      {% csrf_token %}
+      <div class="form-heading"><span>YOUR NOTE</span><p>Fields marked with * are required.</p></div>
+      <div class="row g-3">
+        <div class="col-md-6"><label for="{{ contact_form.name.id_for_label }}">Name *</label>{{ contact_form.name }}{{ contact_form.name.errors }}</div>
+        <div class="col-md-6"><label for="{{ contact_form.email.id_for_label }}">Email *</label>{{ contact_form.email }}{{ contact_form.email.errors }}</div>
+        <div class="col-12"><label for="{{ contact_form.subject.id_for_label }}">Subject</label>{{ contact_form.subject }}{{ contact_form.subject.errors }}</div>
+        <div class="col-12"><label for="{{ contact_form.message.id_for_label }}">A little about your project *</label>{{ contact_form.message }}{{ contact_form.message.errors }}</div>
+        <div class="col-12"><button class="btn btn-primary btn-lg" type="submit">Send message <span aria-hidden="true">↗</span></button></div>
+      </div>
+    </form>
+  </div>
+</section>
 {% endblock %}

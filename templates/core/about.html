@@ -1,7 +1,35 @@
 {% extends "base.html" %}
 {% block title %}About — Trainonex{% endblock %}
+{% block description %}A little about how I approach useful, maintainable Django development.{% endblock %}
 {% block content %}
-<section class="inner-hero"><div class="container"><div class="section-kicker">ABOUT / 01</div><h1>Curious minds.<br><span>Useful digital work.</span></h1><p>We connect thoughtful design with practical technology to create experiences that matter.</p></div></section>
-<section class="section-pad"><div class="container two-col"><div><div class="section-kicker">WHO WE ARE</div><h2>A digital studio for<br><span>what comes next.</span></h2></div><div class="section-copy"><p>Trainonex is an independent digital studio bringing strategy, design and development together. We partner with businesses and teams to turn ambitious ideas into useful digital products and experiences.</p></div></div></section>
-<section class="section-pad services-section"><div class="container two-col"><div><div class="section-kicker">OUR APPROACH</div><h2>Thoughtful from<br><span>day one.</span></h2></div><div class="section-copy"><p>We start by understanding the people and problems behind every project. Then we work collaboratively, make considered decisions and refine the details—keeping the process practical, transparent and focused on meaningful outcomes.</p><a href="{% url 'contact:send' %}" class="btn btn-primary">Work with us ↗</a></div></div></section>
+<section class="inner-hero">
+  <div class="container inner-hero-content">
+    <span class="section-kicker">ABOUT / 01</span>
+    <h1>Curious by nature.<br><span>Practical by design.</span></h1>
+    <p>I enjoy building useful web products and understanding how every part of the experience fits together.</p>
+  </div>
+</section>
+<section class="section-pad">
+  <div class="container two-col">
+    <div><span class="section-kicker">WHO I AM</span><h2>A developer who cares about the <span>whole experience.</span></h2></div>
+    <div class="section-copy">
+      <p>I work across the pieces that make a web project feel complete: Django views and data, clear templates, responsive styling and the small interactions people rely on.</p>
+      <p>I value readable code and steady collaboration. The aim is not to add complexity; it is to make the right thing easy to use and easier to maintain.</p>
+      <a href="{% url 'portfolio:list' %}" class="text-link">See the work <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+<section class="section-pad approach-section">
+  <div class="container approach-grid">
+    <div class="approach-heading"><span class="section-kicker">MY APPROACH</span><h2>Make it clear.<br><span>Make it useful.</span></h2></div>
+    <div class="approach-list">
+      <article><span>01</span><div><h3>Start with the problem</h3><p>Understand what someone needs to do before deciding what to build.</p></div></article>
+      <article><span>02</span><div><h3>Keep the solution understandable</h3><p>Prefer focused Django features and interfaces people can navigate without guesswork.</p></div></article>
+      <article><span>03</span><div><h3>Refine the details</h3><p>Check the complete flow, responsive layouts and feedback states before calling it done.</p></div></article>
+    </div>
+  </div>
+</section>
+<section class="section-pad about-cta">
+  <div class="container about-cta-inner"><div><span class="section-kicker">HAVE SOMETHING IN MIND?</span><h2>Let’s talk about<br><span>what you’re building.</span></h2></div><a class="btn btn-primary btn-lg" href="{% url 'contact:send' %}">Get in touch <span aria-hidden="true">↗</span></a></div>
+</section>
 {% endblock %}

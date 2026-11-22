@@ -39,7 +39,11 @@ def project_edit(request, project_id):
         form.save()
         messages.success(request, "Project updated successfully.")
         return redirect("dashboard:projects")
-    return render(request, "dashboard/project_form.html", {"form": form, "page_title": "Edit project"})
+    return render(request, "dashboard/project_form.html", {
+        "form": form,
+        "project": project,
+        "page_title": "Edit project",
+    })
 
 
 @staff_member_required
