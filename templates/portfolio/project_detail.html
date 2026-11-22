@@ -1,0 +1,53 @@
+{% extends "base.html" %}{% block title %}{{ project.title }} — Trainonex{% endblock %}{% block content %}
+<section class="inner-hero">
+  <div class="container">
+    <div class="section-kicker">
+      CASE STUDY / {% if project.category %}{{ project.category.name }}{% else%}PROJECT{% endif %}
+    </div>
+    <h1>{{ project.title }}<span class="blue-dot">.</span></h1>
+    <p>{{ project.short_description }}</p>
+  </div>
+</section>
+<section class="section-pad">
+  <div class="container case-study">
+    {% if project.cover_image %}
+    <img
+      class="case-image"
+      src="{{ project.cover_image.url }}"
+      alt="{{ project.title }}"
+    />
+    {% else %}
+    <div class="case-placeholder">{{ project.title|upper }}</div>
+    {% endif %}
+    <div class="case-copy">
+      <div>
+        <div class="section-kicker">THE PROJECT</div>
+        <h2>Making the idea<br /><span>work in real life.</span></h2>
+      </div>
+      <div>
+        <p>{{ project.description|linebreaks }}</p>
+        <div class="d-flex gap-3 flex-wrap">
+          {% if project.project_url %}
+          <a
+            class="btn btn-primary"
+            href="{{ project.project_url }}"
+            target="_blank"
+            rel="noopener"
+            >Visit project ↗</a>
+            {% endif %}{% if project.github_url %}<a
+            class="btn btn-outline-dark"
+            href="{{ project.github_url }}"
+            target="_blank"
+            rel="noopener">
+            View source ↗
+        </a>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+    <a href="{% url 'portfolio:list' %}" class="text-link">
+      ← Back to all work
+    </a>
+  </div>
+</section>
+{% endblock %}

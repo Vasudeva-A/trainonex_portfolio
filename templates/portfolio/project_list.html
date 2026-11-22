@@ -1,0 +1,59 @@
+{% extends "base.html" %}{% block title %}Selected Work — Trainonex{% endblock %}{% block content %}
+<section class="inner-hero">
+  <div class="container">
+    <div class="section-kicker">PORTFOLIO / 03</div>
+    <h1>Selected <span>work.</span></h1>
+    <p>A collection of ideas, challenges and things we've made.</p>
+  </div>
+</section>
+<section class="section-pad">
+  <div class="container">
+    <div class="filter-row">
+      <a
+        class="filter-pill {% if not selected_category %}active{% endif %}"
+        href="{% url 'portfolio:list' %}">
+        All work
+    </a>
+      {% for category in categories %}
+      <a
+        class="filter-pill {% if selected_category == category.slug %}active{% endif %}"
+        href="?category={{ category.slug }}">
+        {{ category.name }}
+    </a>
+      {% endfor %}
+    </div>
+    <div class="project-grid">
+      {% for project in projects %}
+      <a
+        class="project-card"
+        href="{% url 'portfolio:detail' project.slug %}">
+        <div class="project-image">
+          {% if project.cover_image %}
+          <img
+            src="{{ project.cover_image.url }}"
+            alt="{{ project.title }}"/>
+          {% else %}
+          <div class="image-placeholder">
+            <span>TN / WORK</span><b>{{ project.title|upper }}</b>
+          </div>
+          {% endif %}
+          <span class="project-category">
+            {% if project.category %}{{ project.category.name }}{% else %}PROJECT{% endif %}</span>
+        </div>
+        <div class="project-info">
+          <div>
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.short_description }}</p>
+          </div>
+          <span class="arrow-circle">↗</span>
+        </div></a>
+      {% empty %}
+      <div class="empty-project">
+        <h3>No published projects yet.</h3>
+        <p>Check back soon for new work.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

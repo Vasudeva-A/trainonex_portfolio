@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block content %}
+<section class="inner-hero">
+  <div class="container">
+    <div class="section-kicker">404 / PAGE NOT FOUND</div>
+    <h1>This page took<br /><span>a wrong turn.</span></h1>
+    <p>The page may have moved or the link may be incorrect.</p>
+    <a class="btn btn-primary" href="{% url 'core:home' %}">Back home ↗</a>
+  </div>
+</section>
+{% endblock %}

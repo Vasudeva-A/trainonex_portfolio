@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero-section">
+ <div class="container hero-grid">
+  <div class="hero-copy reveal">
+   <div class="eyebrow"><span class="pulse-dot"></span> INDEPENDENT DIGITAL STUDIO</div>
+   <h1>We build digital<br><span>experiences</span> that<br>move ideas forward<span class="blue-dot">.</span></h1>
+   <p class="hero-text">Thoughtful design. Clean code. Meaningful impact.<br>We help brands and startups create products people love to use.</p>
+   <div class="d-flex gap-3 flex-wrap"><a class="btn btn-primary btn-lg" href="{% url 'portfolio:list' %}">Explore selected work <span>↗</span></a><a class="btn btn-outline-dark btn-lg" href="{% url 'contact:send' %}">Start a project</a></div>
+   <div class="availability"><span class="pulse-dot"></span> Available for new projects</div>
+  </div>
+  <div class="hero-art reveal">
+   <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+   <div class="art-glow"></div>
+   <div class="art-card"><div class="art-top"><span>TX / 01</span><span>CREATIVE TECHNOLOGY</span></div><div class="abstract-head"><div class="head-core"></div><div class="head-line"></div><div class="head-chip chip-one"></div><div class="head-chip chip-two"></div><div class="head-chip chip-three"></div></div><div class="art-bottom"><span>IDEAS INTO<br>EXPERIENCES</span><span class="art-number">01—04</span></div></div>
+   <div class="floating-tag">DESIGN <b>×</b> TECHNOLOGY</div>
+  </div>
+ </div>
+ <div class="container stats-row"><div><strong>48<span>+</span></strong><small>Projects completed</small></div><div><strong>32<span>+</span></strong><small>Happy clients</small></div><div><strong>6<span>+</span></strong><small>Years of experience</small></div><div class="stats-note">SMALL TEAM.<br>BIG THINKING.</div></div>
+</section>
+<section class="section-pad"><div class="container"><div class="section-heading"><div><div class="section-kicker">SELECTED WORK</div><h2>Ideas made <span>real.</span></h2></div><a class="text-link" href="{% url 'portfolio:list' %}">View all projects ↗</a></div>
+ <div class="project-grid">{% for project in projects %}<a class="project-card" href="{% url 'portfolio:detail' project.slug %}"><div class="project-image">{% if project.cover_image %}<img src="{{ project.cover_image.url }}" alt="{{ project.title }}">{% else %}<div class="image-placeholder"><span>TN / {{ forloop.counter|stringformat:"02d" }}</span><b>{{ project.title|upper }}</b></div>{% endif %}<span class="project-category">{% if project.category %}{{ project.category.name }}{% else %}FEATURED{% endif %}</span></div><div class="project-info"><div><h3>{{ project.title }}</h3><p>{{ project.short_description }}</p></div><span class="arrow-circle">↗</span></div></a>{% empty %}<div class="empty-project"><span>YOUR NEXT CASE STUDY</span><h3>Work worth talking about.</h3><p>Published projects will appear here. Add your first project from the dashboard.</p><a href="{% url 'portfolio:list' %}" class="text-link">Explore work ↗</a></div>{% endfor %}</div>
+</div></section>
+{% endblock %}
