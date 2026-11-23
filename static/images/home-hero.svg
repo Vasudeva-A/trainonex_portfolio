@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="backdrop" x1="120" y1="50" x2="1090" y2="850" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5F4F0"/>
+      <stop offset=".52" stop-color="#EDF2FF"/>
+      <stop offset="1" stop-color="#E9F1D9"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="686" y1="235" x2="946" y2="559" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DCE7FF"/>
+      <stop offset="1" stop-color="#E9F1FF"/>
+    </linearGradient>
+    <linearGradient id="chart" x1="738" y1="493" x2="915" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4569E8"/>
+      <stop offset="1" stop-color="#83A0FF"/>
+    </linearGradient>
+    <filter id="shadow" x="68" y="58" width="1064" height="798" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dy="22"/>
+      <feGaussianBlur stdDeviation="22"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0.1 0 0 0 0 0.16 0 0 0 0 0.27 0 0 0 0.16 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="float-shadow" x="29" y="554" width="335" height="161" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dy="12"/>
+      <feGaussianBlur stdDeviation="12"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0.1 0 0 0 0 0.16 0 0 0 0 0.27 0 0 0 0.12 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="code-shadow" x="649" y="563" width="468" height="280" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dy="16"/>
+      <feGaussianBlur stdDeviation="17"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0.06 0 0 0 0 0.09 0 0 0 0 0.17 0 0 0 0.24 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M34 0H0V34" stroke="#667CA4" stroke-opacity=".08"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#backdrop)"/>
+  <circle cx="1020" cy="170" r="152" fill="#D9E5FF" fill-opacity=".72"/>
+  <circle cx="173" cy="753" r="192" fill="#DDEABF" fill-opacity=".62"/>
+  <circle cx="1061" cy="723" r="94" fill="#D8E4FF" fill-opacity=".48"/>
+  <rect width="1200" height="900" fill="url(#grid)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="134" y="115" width="930" height="638" rx="25" fill="#fff"/>
+    <path d="M159 115h880a25 25 0 0 1 25 25v53H134v-53a25 25 0 0 1 25-25Z" fill="#F8F9FC"/>
+    <path d="M134 193h930" stroke="#E8EBF1"/>
+    <circle cx="169" cy="154" r="7" fill="#F28C82"/>
+    <circle cx="193" cy="154" r="7" fill="#F1C66D"/>
+    <circle cx="217" cy="154" r="7" fill="#82B88C"/>
+    <rect x="438" y="140" width="333" height="28" rx="14" fill="#ECEFF5"/>
+    <circle cx="458" cy="154" r="4" fill="#75A64A"/>
+    <path d="M470 154h167" stroke="#A3ADBD" stroke-linecap="round" stroke-width="4"/>
+    <path d="m1011 150 7 7 7-7" stroke="#9AA5B5" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+
+    <text x="192" y="255" fill="#4569E8" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2.2">IDEA / DESIGN / BUILD</text>
+    <text x="192" y="329" fill="#182338" font-family="Arial, sans-serif" font-size="47" font-weight="700" letter-spacing="-2.1">Thoughtful web</text>
+    <text x="192" y="386" fill="#182338" font-family="Arial, sans-serif" font-size="47" font-weight="700" letter-spacing="-2.1">experiences.</text>
+    <text x="194" y="426" fill="#68768B" font-family="Arial, sans-serif" font-size="15">From a clear idea to something people</text>
+    <text x="194" y="449" fill="#68768B" font-family="Arial, sans-serif" font-size="15">can use, trust and come back to.</text>
+    <rect x="192" y="479" width="132" height="42" rx="9" fill="#355FE8"/>
+    <text x="212" y="505" fill="#fff" font-family="Arial, sans-serif" font-size="12" font-weight="700">See the details</text>
+    <path d="M302 500h9m0 0-4-4m4 4-4 4" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <circle cx="194" cy="566" r="4" fill="#79A94A"/>
+    <text x="208" y="570" fill="#788497" font-family="Arial, sans-serif" font-size="11" font-weight="600">MADE WITH CARE, BUILT TO LAST</text>
+
+    <rect x="637" y="224" width="379" height="391" rx="17" fill="#F8F9FD"/>
+    <rect x="637" y="224" width="379" height="391" rx="17" fill="url(#screen)"/>
+    <rect x="637" y="224" width="379" height="391" rx="17" stroke="#E4E9F3"/>
+    <circle cx="670" cy="259" r="13" fill="#355FE8"/>
+    <path d="M665 259h10m-5-5v10" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
+    <text x="693" y="263" fill="#27344A" font-family="Arial, sans-serif" font-size="13" font-weight="700">Fieldnotes</text>
+    <circle cx="975" cy="259" r="13" fill="#E5EAF5"/>
+    <circle cx="975" cy="255" r="3" fill="#71809A"/>
+    <path d="M969 265c1-5 11-5 12 0" stroke="#71809A" stroke-linecap="round" stroke-width="1.5"/>
+    <text x="671" y="309" fill="#788497" font-family="Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">PROJECT OVERVIEW</text>
+    <text x="671" y="341" fill="#182338" font-family="Arial, sans-serif" font-size="21" font-weight="700">A clearer way forward</text>
+    <rect x="671" y="361" width="311" height="111" rx="12" fill="#fff"/>
+    <text x="690" y="387" fill="#8490A2" font-family="Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1">WEEKLY PROGRESS</text>
+    <path d="M690 448h275M690 421h275M690 394h275" stroke="#E9EDF5" stroke-width="1"/>
+    <path d="m694 442 39-12 38 6 39-26 39 8 39-29 39 4 38-17" stroke="url(#chart)" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+    <circle cx="965" cy="372" r="4" fill="#5D7EF0"/>
+    <rect x="671" y="489" width="147" height="101" rx="12" fill="#fff"/>
+    <rect x="832" y="489" width="150" height="101" rx="12" fill="#fff"/>
+    <text x="687" y="514" fill="#8490A2" font-family="Arial, sans-serif" font-size="9" font-weight="700" letter-spacing=".8">OPEN TASKS</text>
+    <text x="687" y="550" fill="#182338" font-family="Arial, sans-serif" font-size="25" font-weight="700">08</text>
+    <rect x="687" y="563" width="90" height="5" rx="2.5" fill="#E8ECF4"/>
+    <rect x="687" y="563" width="61" height="5" rx="2.5" fill="#78A84C"/>
+    <text x="848" y="514" fill="#8490A2" font-family="Arial, sans-serif" font-size="9" font-weight="700" letter-spacing=".8">MILESTONE</text>
+    <text x="848" y="547" fill="#182338" font-family="Arial, sans-serif" font-size="15" font-weight="700">Ready to ship</text>
+    <rect x="848" y="560" width="80" height="17" rx="8.5" fill="#EAF3DF"/>
+    <circle cx="859" cy="568.5" r="3" fill="#76A448"/>
+    <text x="867" y="572" fill="#64883F" font-family="Arial, sans-serif" font-size="8" font-weight="700">ON TRACK</text>
+  </g>
+
+  <g filter="url(#float-shadow)">
+    <rect x="77" y="590" width="239" height="86" rx="15" fill="#fff"/>
+    <rect x="95" y="608" width="49" height="49" rx="13" fill="#EDF4E4"/>
+    <path d="m109 632 7 7 15-17" stroke="#6B9E3D" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    <text x="159" y="624" fill="#8490A2" font-family="Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1">SMALL STEPS</text>
+    <text x="159" y="644" fill="#182338" font-family="Arial, sans-serif" font-size="14" font-weight="700">A solid foundation</text>
+    <text x="159" y="660" fill="#788497" font-family="Arial, sans-serif" font-size="10">Models, views, templates</text>
+  </g>
+
+  <g filter="url(#code-shadow)">
+    <rect x="693" y="589" width="389" height="190" rx="16" fill="#172238"/>
+    <path d="M693 629h389" stroke="#FFFFFF" stroke-opacity=".1"/>
+    <circle cx="717" cy="609" r="4" fill="#F28C82"/>
+    <circle cx="731" cy="609" r="4" fill="#E8BE64"/>
+    <circle cx="745" cy="609" r="4" fill="#83B98A"/>
+    <text x="775" y="613" fill="#AFBCD0" font-family="Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1">A THOUGHTFUL BUILD</text>
+    <text x="716" y="658" fill="#8EA9FF" font-family="Consolas, monospace" font-size="12">def</text>
+    <text x="745" y="658" fill="#E7EDF8" font-family="Consolas, monospace" font-size="12">make_it_useful(idea):</text>
+    <text x="733" y="682" fill="#AEBBD0" font-family="Consolas, monospace" font-size="12">listen()</text>
+    <text x="733" y="705" fill="#AEBBD0" font-family="Consolas, monospace" font-size="12">build_with_care()</text>
+    <text x="733" y="728" fill="#AEBBD0" font-family="Consolas, monospace" font-size="12">ship_something_great()</text>
+    <circle cx="1009" cy="748" r="4" fill="#80B45A"/>
+    <text x="1021" y="752" fill="#AAB6C9" font-family="Arial, sans-serif" font-size="9" font-weight="700" letter-spacing=".7">READY</text>
+  </g>
+</svg>
