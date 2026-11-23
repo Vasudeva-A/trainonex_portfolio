@@ -1,5 +1,7 @@
 import os
 from pathlib import Path
+
+import dj_database_url
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -60,8 +62,19 @@ TEMPLATES = [{
 
 WSGI_APPLICATION = "config.wsgi.application"
 
+DATABASE_URL = os.getenv("DATABASE_URL")
 DB_ENGINE = os.getenv("DB_ENGINE", "sqlite").lower()
-if DB_ENGINE == "mysql":
+
+if DATABASE_URL:
+    DATABASES = {
+        "default": dj_database_url.config(
+            default=DATABASE_URL,
+            conn_max_age=600,
+            ssl_require=True,
+        )
+    }
+    DATABASES["default"]["CONN_HEALTH_CHECKS"] = True
+elif DB_ENGINE == "mysql":
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.mysql",
