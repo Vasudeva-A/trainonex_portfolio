@@ -4,8 +4,6 @@ from django.conf import settings
 from django.views.generic import RedirectView
 from accounts.views import StaffLoginView, StaffLogoutView
 from django.urls import reverse_lazy
-from django.urls import re_path
-from django.views.static import serve
 
 urlpatterns = [
     path("dashboard/login/", StaffLoginView.as_view(next_page="/dashboard/"), name="dashboard-login"),
@@ -20,7 +18,11 @@ urlpatterns = [
     path("contact/", include("contact.urls")),
 ]
 
-# Temporary media serving for the short Render demo.
-urlpatterns += [
-    re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
-]
+# Serve local media only when Cloudinary is not configured (local development fallback).
+if not settings.CLOUDINARY_URL:
+    from django.urls import re_path
+    from django.views.static import serve
+
+    urlpatterns += [
+        re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
+    ]
